@@ -5,6 +5,11 @@ $(document).ready(function(){
   var breakBtn=$('#break');
 
   start.on('click', startCountdown);
+  breakBtn.on('click' ,takeABreak);
+
+  function takeABreak(){
+    alert('take a break');
+  }
 
   function startCountdown(){
     setInterval(function(){
@@ -13,8 +18,9 @@ $(document).ready(function(){
       if(secondsVal===0 && minutesVal===0){
         breakBtn.removeClass('disabled');
         breakBtn.removeAttr('disabled');
+        // startBreak("Hello this works");
+        return;
       }
-
 
       if(secondsVal===0){
         seconds.text(59);
@@ -35,8 +41,6 @@ $(document).ready(function(){
         else{
           minutes.text(minutesVal-1);
         }
-      }
-
       }
 
     }, 1000);
