@@ -2,6 +2,7 @@ $(document).ready(function(){
   var start=$('#start');
   var minutes=$('#minutes');
   var seconds=$('#seconds');
+  var breakBtn=$('#break');
 
   start.on('click', startCountdown);
 
@@ -9,6 +10,12 @@ $(document).ready(function(){
     setInterval(function(){
       var secondsVal=+seconds.text(); //the plus makes it behave like a number
       var minutesVal=+minutes.text();
+      if(secondsVal===0 && minutesVal===0){
+        breakBtn.removeClass('disabled');
+        breakBtn.removeAttr('disabled');
+      }
+
+
       if(secondsVal===0){
         seconds.text(59);
       }else {
@@ -30,9 +37,6 @@ $(document).ready(function(){
         }
       }
 
-      if(minutesVal==='0' && secondsVal==='0')
-      {
-        break;
       }
 
     }, 1000);
