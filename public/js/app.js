@@ -8,17 +8,19 @@ $(document).ready(function(){
   breakBtn.on('click' ,takeABreak);
 
   function takeABreak(){
-    alert('take a break');
+    minutes.text('05');
+    seconds.text('00');
+    startCountdown();
   }
 
   function startCountdown(){
-    setInterval(function(){
+    var countdown = setInterval(function(){
       var secondsVal=+seconds.text(); //the plus makes it behave like a number
       var minutesVal=+minutes.text();
       if(secondsVal===0 && minutesVal===0){
         breakBtn.removeClass('disabled');
         breakBtn.removeAttr('disabled');
-        // startBreak("Hello this works");
+        clearInterval(countdown); 
         return;
       }
 
