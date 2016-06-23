@@ -1,5 +1,6 @@
 var express = require('express');
 var server = express();
+var port = process.env.PORT || 8080;
 
 server.use(express.static(__dirname+'/public'));
 
@@ -9,4 +10,4 @@ server.get('/', function(request, response){
 
 
 
-server.listen(8080);
+server.listen(port);
